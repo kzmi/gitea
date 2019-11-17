@@ -25,7 +25,8 @@ GOFMT ?= gofmt -s
 GOFLAGS := -v
 EXTRA_GOFLAGS ?=
 
-MAKE_VERSION := $(shell make -v | head -n 1)
+MAKE ?= make
+MAKE_VERSION := $(shell $(MAKE) -v | head -n 1)
 
 ifneq ($(DRONE_TAG),)
 	VERSION ?= $(subst v,,$(DRONE_TAG))
